@@ -66,6 +66,11 @@ public class ComplexityClasses extends Application {
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.4 * n) - 1.0), "Linear 3");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.6 * n), "Linear 4");
 
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 2.0) + 2.0 * n - 1.0), "Q1");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.0 * Math.pow(n, 2.0) + 1.5 * n + 2.0), "Q2");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.5 * Math.pow(n, 2.0) + 2.0 * n - 3.0), "Q3");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 2.0) + 42.0), "Q4");
+
         Scene scene = new Scene(lc);
         scene.getStylesheets().add("chartStyle.css"); // use CSS to remove line symbols
         stage.setTitle("Complexity Classes");         // set app title
