@@ -8,3 +8,9 @@ Group Member 2: N/A
     ii. The graphs only get yet more condensed and while you can still see all three of the functions mentioned in (i.), they are very hard to distiguinsh from one another.
     iii. As Y_FINAL increases, the quadratic functions appear to space out more and then condense again towards the bottom of the screen as Y_FINAL gets larger.
     iv. As Y_FINAL increases the linear functions gets much closer together/
+    v.  When in the presence of the cubic functions the quadratics have a much lower time complexity which becomes especially clear as Y_FINAL increases.
+    vi. The linears have a significantly lower time complexity than both the quadratics and cubics, which I believe reinforces the idea of why we choose the BEST time complexity, aka the lowest power of x possible, when evaluating functions.
+    vii. The cubics at first look as if they have a higher time complexity than exponentials but as Y_FINAL increases towards infinity, it becomes clear that the exponentials have a significantly higher time complexity.
+    viii. It also appears that the quadratics have a higher than some of the exponential functions at first, however as Y_FINAL increases it too becomes clear that the exponential functions have the highest time complexitites.
+    ix. Once again, this just reiterates that the linear functions are MUCH smaller than exponentials and very small overall.
+    x.  As mentioned above, I believe this is to show us just how much time complexity matters, and why it is important to choose the best time complexity.
