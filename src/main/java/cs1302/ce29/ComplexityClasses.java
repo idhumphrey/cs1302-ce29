@@ -36,9 +36,9 @@ public class ComplexityClasses extends Application {
     private LineChart<Number, Number> lc;
 
     /**
-     * The entry point for the JavaFX application
+     * The entry point for the JavaFX application.
      *
-     * @param Stage the stage of the application.
+     * @param stage the stage of the application.
      */
     public void start(Stage stage) {
 
@@ -47,19 +47,24 @@ public class ComplexityClasses extends Application {
             .mapToObj(i -> i)
             .toArray(Integer[]::new);
 
-        //Sample from genData JavaDoc
-
-        Double[] y = genData(x, n -> n + 10.0);
-
-        Arrays.stream(y)
-            .forEach(System.out::println);
-
         // Create initial line chart and add the constant time data series
         lc = ChartUtility.createChart(x, genData(x, n -> 10.0), "Size", "Operations", Y_FINAL, "Constant");
         lc.setTitle("Complexity Classes");
 
         // Add the linear time data series to the line chart
         ChartUtility.addSeries(lc, x, genData(x, n -> 1.0 * n), "Linear");
+
+
+        //CHECKPOINT 2.1: make and add linear function newFunct
+        Integer[] newFunct = IntStream.range(0, 100)
+            .mapToObj(k -> k)
+            .toArray(Integer[]::new);
+
+
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.0 * n) + 2.0), "Linear 1");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.2 * n) + 1.0), "Linear 2");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.4 * n) - 1.0), "Linear 3");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.6 * n), "Linear 4");
 
         Scene scene = new Scene(lc);
         scene.getStylesheets().add("chartStyle.css"); // use CSS to remove line symbols
