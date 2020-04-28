@@ -120,7 +120,6 @@ public class ComplexityClasses extends Application {
             .toArray(Double[]::new);
 
         return newArray;
-        //throw new UnsupportedOperationException("genData method not yet implemented");
     } // genData
 
 } // ComplexityClasses
