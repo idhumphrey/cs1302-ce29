@@ -41,19 +41,18 @@ public class ComplexityClasses extends Application {
      * @param stage the stage of the application.
      */
     public void start(Stage stage) {
-
         // Initialize the values for the x-axis (Problem Size)
         Integer[] x = IntStream.range(X_START, X_FINAL)
             .mapToObj(i -> i)
             .toArray(Integer[]::new);
 
         // Create initial line chart and add the constant time data series
-        lc = ChartUtility.createChart(x, genData(x, n -> 10.0), "Size", "Operations", Y_FINAL, "Constant");
+        lc = ChartUtility.createChart(x, genData(x, n -> 10.0), "Size",
+                                      "Operations", Y_FINAL, "Constant");
         lc.setTitle("Complexity Classes");
 
         // Add the linear time data series to the line chart
         ChartUtility.addSeries(lc, x, genData(x, n -> 1.0 * n), "Linear");
-
 
         //CHECKPOINT 2.1: make and add linear function newFunct
         Integer[] newFunct = IntStream.range(0, 100)
@@ -61,32 +60,38 @@ public class ComplexityClasses extends Application {
             .toArray(Integer[]::new);
 
         //ChECKPOINT 2: Linear Functions
-
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.0 * n) + 2.0), "Linear 1");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.2 * n) + 1.0), "Linear 2");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.4 * n) - 1.0), "Linear 3");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.6 * n), "Linear 4");
 
-
         //CHECKPOINT 3: Quadratics
-
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 2.0) + 2.0 * n - 1.0), "Q1");
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.0 * Math.pow(n, 2.0) + 1.5 * n + 2.0), "Q2");
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.5 * Math.pow(n, 2.0) + 2.0 * n - 3.0), "Q3");
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 2.0) + 42.0), "Q4");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     Math.pow(n, 2.0) + 2.0 * n - 1.0), "Q1");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     2.0 * Math.pow(n, 2.0) + 1.5 * n + 2.0), "Q2");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     1.5 * Math.pow(n, 2.0) + 2.0 * n - 3.0), "Q3");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     Math.pow(n, 2.0) + 42.0), "Q4");
 
         // CHECKPOINT 4: Cubics
-
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.1 * Math.pow(n, 3.0) + 1.3 * n - 4.0), "C1");
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.2 * Math.pow(n, 3.0) + 1.5 * n + 2.0), "C2");
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.5 * Math.pow(n, 3.0) + n - 3.5), "C3");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     1.1 * Math.pow(n, 3.0) + 1.3 * n - 4.0), "C1");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     2.2 * Math.pow(n, 3.0) + 1.5 * n + 2.0), "C2");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     1.5 * Math.pow(n, 3.0) + n - 3.5), "C3");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 3.0) - 42.0), "C4");
 
         // CHECKPOINT 5: exponentials
-
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(2.0, n) + Math.pow(n, 2.0)), "EX1");         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(1.5, n) + 32.0), "EXP2");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n ->
+                                                     Math.pow(2.0, n) + Math.pow(n, 2.0)), "EX1");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(1.5, n) + 32.0),
+                               "EXP2");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(1.3, n) + n), "EX3");
-        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.0 * Math.pow(1.2, n) - 0.5 * Math.pow(n, 3.0)), "EXP4");
+        ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.0 * Math.pow(1.2, n) - 0.5 *
+                                                     Math.pow(n, 3.0)), "EXP4");
 
         Scene scene = new Scene(lc);
         scene.getStylesheets().add("chartStyle.css"); // use CSS to remove line symbols
