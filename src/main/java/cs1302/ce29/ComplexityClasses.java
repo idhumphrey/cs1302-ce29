@@ -60,23 +60,29 @@ public class ComplexityClasses extends Application {
             .mapToObj(k -> k)
             .toArray(Integer[]::new);
 
+        //ChECKPOINT 2: Linear Functions
 
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.0 * n) + 2.0), "Linear 1");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.2 * n) + 1.0), "Linear 2");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> (1.4 * n) - 1.0), "Linear 3");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.6 * n), "Linear 4");
 
+
+        //CHECKPOINT 3: Quadratics
+
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 2.0) + 2.0 * n - 1.0), "Q1");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.0 * Math.pow(n, 2.0) + 1.5 * n + 2.0), "Q2");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.5 * Math.pow(n, 2.0) + 2.0 * n - 3.0), "Q3");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 2.0) + 42.0), "Q4");
 
-        // CHECKPOINT 4 STEPS
+        // CHECKPOINT 4: Cubics
+
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.1 * Math.pow(n, 3.0) + 1.3 * n - 4.0), "C1");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 2.2 * Math.pow(n, 3.0) + 1.5 * n + 2.0), "C2");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> 1.5 * Math.pow(n, 3.0) + n - 3.5), "C3");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(n, 3.0) - 42.0), "C4");
 
+        // CHECKPOINT 5: exponentials
 
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(2.0, n) + Math.pow(n, 2.0)), "EX1");         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(1.5, n) + 32.0), "EXP2");
         ChartUtility.addSeries(lc, newFunct, genData(newFunct, n -> Math.pow(1.3, n) + n), "EX3");
